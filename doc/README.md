@@ -36,10 +36,38 @@ The facts and rules contained in a knowledge base are called clauses.
 
 predicates are the concepts we find important, and the various clauses we write down concerning them are our attempts to pin down what they mean and how they are inter-related.
 
-
 and (,) or (;)
 
-## Februar
+it's tree recursion all the way down
+
+Lists [Head|Tail] =
+
+anonymous variable _
+
+## February
+
+CFG - Context Free Grammars
+
+DCG - definite clause grammars
+
+Terminal vs non-terminal symbols
+
+Context free rule: non-terminal symbol -> finite sequence made up of terminal and/or non-terminal symbols
+
+To put it another way, a recogniser is a program that correctly classifies strings as grammatical or ungrammatical (relative to some grammar).
+
+difference list
 
 
 ## March
+
+nothing here
+
+
+## April
+
+
+# Random
+
+scryer-prolog as lib
+https://github.com/mthom/scryer-prolog/pull/1880
