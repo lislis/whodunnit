@@ -1,0 +1,39 @@
+<div class="sidebar">
+  {{ if .Params.toc }}
+    {{ with .TableOfContents }}
+      <aside class="toc">
+        <nav>
+          <p class="sidebar__heading">Table Of Contents</p>
+          {{ . }}
+        </nav>
+      </aside>
+      <hr />
+    {{ end }}
+  {{ end }}
+
+  {{ $cv := index $.Site.Data.json_meta $.Site.Language.Lang }}
+  {{ if $cv.basics }}
+      <aside class="bio">
+
+        <p><strong>{{$cv.basics.title}}</strong><br>{{ $cv.basics.description }}
+          <br><a href="/about">Read more ></a></p>
+
+        <hr />
+
+        <ul>
+        <li><a href="{{ $cv.basics.profiles.github }}" target="_blank" class="sidebar-link link--external">{{ partial (printf "icons/%s" "simple-icon") "github"}} Project on GitHub</a></li>
+
+        <li><a href="{{ $cv.basics.profiles.fedi }}" target="_blank" class="sidebar-link link--external">{{ partial (printf "icons/%s" "simple-icon") "mastodon"}} lislis on Mastodon</a></li>
+        </ul>
+      {{ if $.Site.Params.tagCloud.enable }}
+        <hr />
+      {{ end }}
+    </aside>
+  {{ end }}
+
+  {{ if $.Site.Params.tagCloud.enable }}
+    <aside>
+      {{ partial "tag-cloud.html" . }}
+    </aside>
+  {{ end }}
+</div>

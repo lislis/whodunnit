@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "title": "Whodunnit",
+    "description": "An experimental game approach to exploring Prolog through Rust and solving murder mysteries.",
+    "profiles": {
+      "github": "https://github.com/lislis/whodunnit",
+      "fedi": "https://toot.cat/@lislis"
+    }
+  }
+}
