@@ -8,6 +8,7 @@ enableRobotsTXT = true
 
 [build]
   noJSConfigInAssets = true
+  _merge = "deep"
   [build.buildStats]
     # With each build, Hugo writes a hugo_stats.json file that contains arrays
     # of the class attributes, id attributes, and tags of each HTML element 
@@ -158,3 +159,11 @@ enableRobotsTXT = true
   [languages.de]
     languageName = "Deutsch"
     weight = 20
+
+[module]
+  [[module.mounts]]
+    source = "node_modules/prismjs"
+    target = "assets/prismjs"
+  [[module.mounts]]
+    source = "node_modules/prism-themes/themes"
+    target = "assets/prism-themes"
