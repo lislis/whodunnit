@@ -28,54 +28,8 @@ defaults:
     shell: bash
 
 jobs:
-  update_hugo_npm_dependencies:
-    name: Update Hugo npm Dependencies
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    outputs:
-      commit_hash: ${{ steps.commit_changes.outputs.commit_hash }}
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: "0.145.0"
-          extended: true
-
-      - name: Write composite package.json
-        run: |
-          cd site
-          hugo mod npm pack
-      - name: Install npm Packages
-        run: |
-          cd site
-          npm install
-      - name: Update browserlist postcss
-        run: |
-          cd site
-          npx update-browserslist-db@latest
-      - name: Display Changes
-        run: git status
-
-      - name: Commit Changes
-        id: commit_changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Update Hugo npm Dependencies
-          commit_author:
-            renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
-
   # Build job
   build:
-    needs: update_hugo_npm_dependencies
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.145.0
