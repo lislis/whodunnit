@@ -58,6 +58,10 @@ jobs:
         run: |
           cd site
           npm install
+      - name: Update browserlist postcss
+        run: |
+          cd site
+          npx update-browserslist-db@latest
       - name: Display Changes
         run: git status
 
@@ -71,6 +75,7 @@ jobs:
 
   # Build job
   build:
+    needs: update_hugo_npm_dependencies
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.145.0
