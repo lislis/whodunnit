@@ -16,6 +16,7 @@ However, Prolog is taught in quite a few computer science programs and is genuin
 ## Learning Prolog
 - [[Book] Learn Prolog Now!](https://www.let.rug.nl/bos/lpn/index.php) (2001)
 - [[GitHub] Learn Prolog Now Excercises Solutions](https://github.com/mrkkrp/lpnes)
+- [[Book] The Power of Prolog](https://www.metalevel.at/prolog) (2005)
 
 ## Clue & Prolog
 - [[YouTube] "Clue" Written in Prolog Gameplay](https://www.youtube.com/watch?v=rZ34Df9S36I) (2013-01-16)
@@ -26,10 +27,10 @@ However, Prolog is taught in quite a few computer science programs and is genuin
 - [[Article] Using Prolog to Solve Logic Puzzles](https://bennycheung.github.io/using-prolog-to-solve-logic-puzzles) (2016-04-21)
 - [[Article] Solving Puzzles using Constraint Logic Programming in Prolog](https://bennycheung.github.io/solving-puzzles-using-clp) (2022-09-06)
 
-## Fun prolog programs
+## Fun Prolog programs
 - [[GitHub] Game of Thrones Character Database](https://github.com/rachelwiles/GoT-Check)
 - [[GitHub] Constitution of Japan](https://github.com/bitlaw-jp/the-constitution-of-japan)
 
 ## Misc Prolog
-- [[Article] Generating a Storyline Procedurally](https://www.noveltech.dev/procedural-story)
-- [[Paper] Constraint-Procedural Logic Generated Environments for Deep Q-learning Agent training and benchmarking](https://ceur-ws.org/Vol-3204/paper_27.pdf)
+- [[Article] Generating a Storyline Procedurally](https://www.noveltech.dev/procedural-story) (2022-02-22)
+- [[Paper] Constraint-Procedural Logic Generated Environments for Deep Q-learning Agent training and benchmarking](https://ceur-ws.org/Vol-3204/paper_27.pdf) (2018)

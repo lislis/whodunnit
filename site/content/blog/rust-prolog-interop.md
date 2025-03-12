@@ -2,7 +2,7 @@
 author = "lislis"
 title = "Rust-Prolog interop"
 date = "2025-03-04"
-description = "A brief outline of the process rabbit hole"
+description = "A short trip down the rabbit hole of making two things talk to each other"
 tags = [
     "rust",
     "prolog",
