@@ -2,7 +2,7 @@
   <article class="post">
     <div class="post-header">
       <h2>
-        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
       </h2>
       {{ partial "post-meta.html" (dict "page" . "pageIndex" $pageIndex) }}
     </div>
@@ -14,7 +14,7 @@
         {{ .Summary }}
         {{ if .Truncated }}
           <div class="post-content__read-more">
-            <a href="{{ .RelPermalink }}">Read more &gt;</a>
+            <a href="{{ .Permalink }}">Read more &gt;</a>
           </div>
         {{ end }}
       {{ end }}
