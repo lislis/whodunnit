@@ -50,7 +50,9 @@ Written out the one-liner would look something like this (assuming the goal is `
 swipl -s test.pl -g "playsAirGuitar(X), open('debug.txt', write, Stream, []), format(Stream, X, [])." -g halt.
 ```
 
+{{< rawhtml >}}
 <video controls muted>
 <source type="video/mp4" src="/videos/rust-prolog-interaction.mp4"></source>
 <a href="/videos/rust-prolog-interaction.mp4>Find the video file here</a>
 </video>
+{{< /rawhtml >}}
