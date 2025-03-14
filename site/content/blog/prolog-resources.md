@@ -20,7 +20,10 @@ However, Prolog is taught in quite a few computer science programs and is genuin
 
 ## Clue & Prolog
 - [[YouTube] "Clue" Written in Prolog Gameplay](https://www.youtube.com/watch?v=rZ34Df9S36I) (2013-01-16)
+- [[GitHub] Cluedo in Prolog](https://github.com/JGalego/cluedo-prolog) (2018)
 - [[GitHub] Clues](https://github.com/asigdel29/Clues) (2022-12-17)
+
+These are also relevant and discussed more in depth in the [Designing Cluedo](/blog/designing-cluedo/) post.
 
 
 ## Prolog and puzzle solving
