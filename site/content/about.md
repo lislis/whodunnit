@@ -32,3 +32,5 @@ Upon starting a new game, a scenario is generated in the background. A scenario 
 The player however cannot access all facts at once. They have to reveal the facts one after the other through the game. Each interaction is represented as a Prolog query against the fact database and evaluated and kept track of. When the player is able to deduct the culprit and verify the culprit-fact then the case is considered solved and the game ends.
 
 The [Blog](/blog) of this page represents a development diary. Feel free to browse posts of interest.
+
+Click [here for the current state of Wodunnit](/blog/results/) and [here for overall project reflection](/blog/reflection/).

@@ -6,7 +6,7 @@ description = "A short trip down the rabbit hole of making two things talk to ea
 tags = [
     "rust",
     "prolog",
-    "processes",
+    "interop",
 ]
 +++
 
