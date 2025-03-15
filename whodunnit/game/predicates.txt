@@ -1,0 +1,23 @@
+alibi(X) :- not_murder_location(X);
+            not_murder_weapon(X).
+
+innocent(X) :- suspect(X),
+               \+ murderer(X).
+
+not_murder_weapon(X) :- weapon(X),
+             \+ murder_weapon(X).
+
+not_murder_location(X) :- location(X),
+                \+ murder_location(X).
+
+clue(X, Y) :- innocent(X), not_murder_location(Y), \+ alibi(Y).
+clue(X, Y) :- innocent(X), not_murder_weapon(Y), \+ alibi(Y).
+
+false_clue(X, Y) :- innocent(X), ( murder_weapon(Y); alibi(Y) ).
+false_clue(X, Y) :- innocent(X), ( murder_location(Y); alibi(Y) ).
+
+accuse(X, Y, Z) :- murderer(X),
+                   murder_weapon(Y),
+                   murder_location(Z).
+
+question(X, Y, Z) :- innocent(X) -> clue(Y, Z); false_clue(Y, Z).

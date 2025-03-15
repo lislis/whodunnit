@@ -1,0 +1,10 @@
+[package]
+name = "whodunnit"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mio = "1.0.3"
+rand = "0.9.0"
+subprocess = "0.2.9"
+swipl = "0.3.16"
