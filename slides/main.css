@@ -18,14 +18,14 @@ html, body {
   font-family: 'josefin_sansregular';
   letter-spacing: -0.05em;
   font-weight: normal;
-  line-height: 1.6;
-  font-size: 24px;
+  line-height: 1.4;
+  font-size: 28px;
   color: #fbf1c7;
 }
 
 h1, h2, h3 {
   font-weight: 400;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
 }
 
 .remark-slide-content {
@@ -136,8 +136,8 @@ table td {
 }
 
 .sec.remark-slide-content {
-  background-color: var(--link-color);
-  color: #181818;
+  background-color: #fbf1c7;
+  color: #282828;
 }
 
 .no-bullets ul {
@@ -153,11 +153,6 @@ small {
   font-size: 0.5em;
 }
 
-.invert {
-  color:  #d9d9d9;
-  text-shadow: #181818  2px 2px 5px;
-}
-
 .columns {
   column-count: 2;
 }
@@ -165,4 +160,9 @@ small {
 .em {
   font-size: 1.8em;
   line-height: 1.4;
+}
+
+.navigation {
+  font-size: 0.8em;
+  opacity: 0.6;
 }
