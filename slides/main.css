@@ -32,6 +32,10 @@ h1, h2, h3 {
   background-color: var(--bg);
 }
 
+.remark-code {
+  text-wrap: wrap;
+}
+
 
 .hidden {
   visibility: hidden;

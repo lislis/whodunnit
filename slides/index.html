@@ -43,6 +43,10 @@
 
       ---
 
+      tbd cluedo slide
+
+      ---
+
       .navigation[What? - pt 2]
 
       # Learn Prolog
@@ -67,11 +71,11 @@
 
       --
 
-      - Write game "packaging" and glue code
+      - Write game "framework" and glue code
 
       --
 
-      - Try out some hyped crates
+      - Do all the things Prolog can't do
 
       ---
 
@@ -103,17 +107,282 @@
 
       ---
 
+      class: center, middle
+
+      # Interlude - Learn you some Prolog
+
+      ---
+
+      class: center, middle
+
+      (slide intentionally left blank)
+
+      ---
+
       class: middle, center, sec
 
       .subtitle[How?]
 
       ---
 
-      # (Expected) Results
+      Tbd overall interaction architecture diagram
 
       ---
 
-      # Vision and future work
+      class: middle, center
+
+      # Step 1: Make Prolog and Rust talk
+
+      ---
+
+      class: sec
+
+      .navigation[How? - Make them talk - pt 1]
+
+      # 1st Plan
+
+      ---
+
+      class: sec
+
+      background-image: url(assets/diagram1.png)
+      background-size: 50%
+      background-position: 70% center
+
+      .navigation[How? - Make them talk - pt 1]
+
+      # 1st Plan
+
+      ---
+
+      class: sec
+
+      .navigation[How? - Make them talk - pt 2]
+
+      ~~1st Plan~~
+
+      # 2nd Plan
+
+
+      ---
+
+      Calling out to Prolog
+
+      ```rust
+      pub fn query_prolog(&self) -> Result<std::process::Output, std::io::Error> {
+            let child = Command::new("swipl")
+            .arg("-s")
+            .arg(&self.db_path)
+            .arg("-g")
+            .arg(&self.prolog_string)
+            .arg("-g")
+            .arg("halt.")
+            .output();
+            child
+      }
+      ```
+
+      ---
+
+      class: sec
+
+      background-image: url(assets/diagram2.png)
+      background-size: 50%
+      background-position: 70% center
+
+      .navigation[How? - Make them talk - pt 2]
+
+      ~~1st Plan~~
+
+      # 2nd Plan
+
+      ---
+
+      class: sec
+
+      .navigation[How? - Make them talk - pt 3]
+
+      ~~1st Plan~~
+
+      ~~2nd Plan~~
+
+      # 3rd Plan
+
+      ---
+
+      "Retrieving" info from Prolog
+
+      ```rust
+      fn format_prolog_query<'a>(&mut self) {
+            self.prolog_string = format!("{}, open(\"{}\", write, Stream, []), format(Stream, X, []).", &self.goal, &self.tmp_path);
+      }
+      ```
+
+      ---
+
+      class: sec
+
+      background-image: url(assets/diagram3.png)
+      background-size: 50%
+      background-position: 70% center
+
+      .navigation[How? - Make them talk - pt 3]
+
+      ~~1st Plan~~
+
+      ~~2nd Plan~~
+
+      # 3rd Plan
+
+      ---
+
+      class: middle, center
+
+      # Step 2: Write (good) Prolog
+
+      ---
+
+      .navigation[How? - Write Prolog - pt 5]
+
+      --
+
+      # Build the facts database
+
+      ---
+
+      background-image: url(assets/suspects.png)
+      background-size: 70%
+      background-position: 70% center
+
+      .navigation[How? - Write Prolog - pt 5]
+
+      # Build the facts database
+
+      ---
+
+      ```prolog
+      suspect(missScarlett).
+      suspect(colonelMustard).
+      suspect(mrsWhite).
+      suspect(reverendGreen).
+      suspect(mrsPeacock).
+      suspect(professorPlum).
+      weapon(candlestick).
+      weapon(dagger).
+      weapon(leadPipe).
+      weapon(revolver).
+      weapon(rope).
+      weapon(wrench).
+      location(kitchen).
+      location(ballroom).
+      location(conservatory).
+      location(library).
+      location(billiardRoom).
+      location(study).
+      location(hall).
+      location(lounge).
+      location(diningRoom).
+
+      ```
+      ---
+
+      .navigation[How? - Write Prolog - pt 6]
+
+      # Add game mechanics
+
+      --
+
+      ```prolog
+      alibi(X) :- not_murder_location(X);
+            not_murder_weapon(X).
+
+      innocent(X) :- suspect(X),
+               \+ murderer(X).
+
+      not_murder_weapon(X) :- weapon(X),
+             \+ murder_weapon(X).
+
+      not_murder_location(X) :- location(X),
+                \+ murder_location(X).
+
+      ```
+
+      ---
+
+
+      .navigation[How? - Write Prolog - pt 7]
+
+      # Add game mechanics cont.
+
+      ```prolog
+      clue(X, Y) :- innocent(X), not_murder_location(Y), \+ alibi(Y).
+      clue(X, Y) :- innocent(X), not_murder_weapon(Y), \+ alibi(Y).
+
+      false_clue(X, Y) :- innocent(X), ( murder_weapon(Y); alibi(Y) ).
+      false_clue(X, Y) :- innocent(X), ( murder_location(Y); alibi(Y) ).
+
+      accuse(X, Y, Z) :- murderer(X),
+                   murder_weapon(Y),
+                   murder_location(Z).
+
+      ```
+
+      ---
+
+      .navigation[How? - Write Prolog - pt 8]
+
+      # Add game mechanics cont. again
+
+      ```prolog
+      question(X, Y, Z) :- innocent(X) -> clue(Y, Z); false_clue(Y, Z).
+
+      ```
+
+      --
+
+      # Then set the scene!
+
+      --
+
+      ```prolog
+      murderer(mrsPeacock).
+      murder_weapon(candlestick).
+      murder_location(diningRoom).
+
+      ```
+
+      ---
+
+      class: middle, center, sec
+
+      # Demo time!
+
+      ---
+
+      class: middle, center, sec
+
+      (slide intentionally left blank)
+
+
+      ---
+
+      # Future work
+
+      ---
+
+      # Future work (to fix things)
+
+      --
+
+      - Fix the Prolog code
+
+      --
+
+      - Rewrite the Rust-Prolog initiation code
+
+      --
+
+      - Rewrite Prolog query code
 
       ---
 
